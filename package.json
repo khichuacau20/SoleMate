@@ -8,10 +8,11 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "start": "turbo run start",
+    "start": "node packages/backend/dist/index.js",
     "test": "turbo run test",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start:all": "turbo run start"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.0",

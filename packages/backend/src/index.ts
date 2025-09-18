@@ -1,9 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import { productRoutes } from './routes/product.routes';
-import { userRoutes } from './routes/user.routes';
-import { orderRoutes } from './routes/order.routes';
+import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
 import { errorHandler } from './middleware/error.middleware';
 
 const app = express();
@@ -14,9 +13,13 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/orders', orderRoutes);
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 
 // Error handling
 app.use(errorHandler);

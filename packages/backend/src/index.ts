@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.routes';
-import productRoutes from './routes/product.routes';
+import {productRoutes} from './routes/product.routes';
 import { errorHandler } from './middleware/error.middleware';
 
 const app = express();
